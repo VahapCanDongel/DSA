@@ -14,7 +14,7 @@ class LinkedList:
     def append(self, value):
         newNode = Node(value)
         if self.head is None:
-            self.head.next = newNode
+            self.head = newNode
             self.tail = newNode
         else:
             self.tail.next = newNode
@@ -39,7 +39,7 @@ class LinkedList:
             self.head == None
             self.tail == None
 
-        return temp
+        return temp.value
 
     def prepend(self, value):
         pass
