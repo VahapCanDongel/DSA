@@ -25,12 +25,13 @@ class LinkedList:
     def pop(self):
         temp = self.head
         pre = self.head
-        if temp.next is not None:
-            temp = temp.next
+        while(temp.next is not None):
             pre = temp
-            self.tail = pre
-            self.tail.next = None
-            return temp
+            temp = temp.next
+
+        self.tail = pre
+        self.tail.next = None
+        return temp
 
     def prepend(self, value):
         pass
@@ -50,4 +51,4 @@ my_ll.append(5)
 my_ll.append(12)
 my_ll.pop()
 
-print(my_ll.tail.value)
+print(my_ll.head.value)
