@@ -42,7 +42,30 @@ class LinkedList:
         return temp.value
 
     def prepend(self, value):
-        pass
+        newNode = Node(value)
+        if self.length == 0:
+            self.head = newNode
+            self.tail = newNode
+        else:
+            newNode.next = self.head
+            self.head = newNode
+
+        self.length += 1
+        return True
+
+    def pop_first(self):
+        if self.length == 0:
+            return None
+
+        temp = self.head
+        self.head = self.head.next
+        temp.next = None
+        self.length -= 1
+
+        if self.length == 0:
+            self.tail = None
+
+        return temp
 
     def insert(self, index, value):
         pass
@@ -58,5 +81,8 @@ my_ll = LinkedList(4)
 my_ll.append(5)
 my_ll.append(12)
 my_ll.pop()
+my_ll.prepend(1)
 
-print(my_ll.head.value)
+my_ll.pop_first()
+
+print(my_ll.print_list())
